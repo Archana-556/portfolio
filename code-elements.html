@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Code Elements - Archana Anand</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand terminal-text" href="index.html">
+                <i class="fas fa-terminal"></i> Archana.dev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">My Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="code-elements.html">My Code Elements</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success btn-sm ms-2" onclick="viewResume()">
+                            <i class="fas fa-file-pdf"></i> View Resume
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light btn-sm ms-2" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Code Elements Header -->
+<section class="code-hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="code-hero-content">
+                    <div class="code-badge mb-4">
+                        <i class="fas fa-terminal me-2"></i>
+                        <span>Interactive Code Playground</span>
+                    </div>
+                    <h1 class="code-title mb-4">
+                        Code <span class="text-success">Playground</span>
+                        <div class="title-cursor">|</div>
+                    </h1>
+                    <p class="code-subtitle mb-5">
+                        Live code examples with HTML, CSS, and JavaScript. 
+                        All outputs are running by default - explore and learn!
+                    </p>
+                    <div class="row g-4 code-features-row">
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item text-center">
+                                <i class="fas fa-play-circle mb-2"></i>
+                                <span>Auto Running</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item text-center">
+                                <i class="fas fa-code mb-2"></i>
+                                <span>HTML/CSS/JS</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item text-center">
+                                <i class="fas fa-eye mb-2"></i>
+                                <span>Live Preview</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item text-center">
+                                <i class="fas fa-lightbulb mb-2"></i>
+                                <span>Interactive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="code-visual">
+                    <div class="terminal-animation">
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <div class="terminal-button red"></div>
+                                <div class="terminal-button yellow"></div>
+                                <div class="terminal-button green"></div>
+                            </div>
+                            <div class="terminal-title">code-playground.js</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command typing-command">npm run dev</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">✅ Server running on localhost:3000</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">🚀 Code playground ready!</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cursor-blink">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-code-icons">
+                        <div class="code-icon icon-1">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="code-icon icon-2">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="code-icon icon-3">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="code-icon icon-4">
+                            <i class="fab fa-react"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Code Sections -->
+    <section class="py-5">
+        <div class="container-fluid">
+            <!-- Interactive Card Component -->
+            <div class="code-section mb-5">
+                <h3 class="text-success mb-4 text-center">
+                    <i class="fas fa-id-card me-2"></i> Interactive Profile Card
+                </h3>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-html5 me-2"></i> HTML
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>&lt;div class="profile-card-demo"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;img src="/placeholder.svg?height=80&width=80" 
+         alt="Profile" class="profile-img"&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h3&gt;Archana Anand&lt;/h3&gt;
+    &lt;p&gt;Full Stack Developer&lt;/p&gt;
+    &lt;div class="skills"&gt;
+      &lt;span class="skill"&gt;React&lt;/span&gt;
+      &lt;span class="skill"&gt;Node.js&lt;/span&gt;
+      &lt;span class="skill"&gt;MongoDB&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button class="contact-btn" 
+            onclick="showContact()"&gt;
+      Contact Me
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-css3-alt me-2"></i> CSS
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>.profile-card-demo {
+  background: linear-gradient(135deg, 
+    #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.profile-card-demo:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.skills {
+  margin: 20px 0;
+}
+
+.skill {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.contact-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #ff5252;
+  transform: scale(1.05);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="output-block">
+                            <div class="output-header">
+                                <span class="output-title">
+                                    <i class="fas fa-eye me-2"></i> Live Output
+                                </span>
+                            </div>
+                            <div class="output-content" id="output1">
+                                <div class="profile-card-demo">
+                                    <div class="card-header">
+                                        <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>Archana Anand</h3>
+                                        <p>Full Stack Developer</p>
+                                        <div class="skills">
+                                            <span class="skill">React</span>
+                                            <span class="skill">Node.js</span>
+                                            <span class="skill">MongoDB</span>
+                                        </div>
+                                        <button class="contact-btn" onclick="showContact()">Contact Me</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Dashboard -->
+            <div class="code-section mb-5">
+                <h3 class="text-success mb-4 text-center">
+                    <i class="fas fa-chart-bar me-2"></i> Animated Dashboard
+                </h3>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-html5 me-2"></i> HTML
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>&lt;div class="dashboard-demo"&gt;
+  &lt;div class="dashboard-header"&gt;
+    &lt;h4&gt;Analytics Dashboard&lt;/h4&gt;
+    &lt;span class="status online"&gt;● Live&lt;/span&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="stats-grid"&gt;
+    &lt;div class="stat-card"&gt;
+      &lt;div class="stat-icon"&gt;👥&lt;/div&gt;
+      &lt;div class="stat-number" data-target="1250"&gt;0&lt;/div&gt;
+      &lt;div class="stat-label"&gt;Users&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="stat-card"&gt;
+      &lt;div class="stat-icon"&gt;📊&lt;/div&gt;
+      &lt;div class="stat-number" data-target="89"&gt;0&lt;/div&gt;
+      &lt;div class="stat-label"&gt;Projects&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="stat-card"&gt;
+      &lt;div class="stat-icon"&gt;💰&lt;/div&gt;
+      &lt;div class="stat-number" data-target="45000"&gt;0&lt;/div&gt;
+      &lt;div class="stat-label"&gt;Revenue&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="progress-section"&gt;
+    &lt;div class="progress-item"&gt;
+      &lt;span&gt;React Projects&lt;/span&gt;
+      &lt;div class="progress-bar"&gt;
+        &lt;div class="progress-fill" data-width="85"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="progress-item"&gt;
+      &lt;span&gt;Node.js APIs&lt;/span&gt;
+      &lt;div class="progress-bar"&gt;
+        &lt;div class="progress-fill" data-width="70"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-css3-alt me-2"></i> CSS + JS
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>.dashboard-demo {
+  background: #1a1a2e;
+  border-radius: 15px;
+  padding: 25px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.status.online {
+  color: #4CAF50;
+  font-size: 14px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, 
+    #667eea, #764ba2);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-section {
+  space-y: 15px;
+}
+
+.progress-item {
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  background: #333;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #00ff41, #00d4ff);
+  width: 0%;
+  transition: width 2s ease;
+}
+
+// JavaScript Animation
+function animateDashboard() {
+  // Animate numbers
+  document.querySelectorAll('.stat-number')
+    .forEach(el => {
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = Math.floor(current);
+      }, 40);
+    });
+  
+  // Animate progress bars
+  setTimeout(() => {
+    document.querySelectorAll('.progress-fill')
+      .forEach(el => {
+        el.style.width = el.dataset.width + '%';
+      });
+  }, 500);
+}
+
+// Auto start animation
+setTimeout(animateDashboard, 1000);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="output-block">
+                            <div class="output-header">
+                                <span class="output-title">
+                                    <i class="fas fa-eye me-2"></i> Live Dashboard
+                                </span>
+                            </div>
+                            <div class="output-content" id="output2">
+                                <div class="dashboard-demo">
+                                    <div class="dashboard-header">
+                                        <h4>Analytics Dashboard</h4>
+                                        <span class="status online">● Live</span>
+                                    </div>
+                                    
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon">👥</div>
+                                            <div class="stat-number" data-target="1250">0</div>
+                                            <div class="stat-label">Users</div>
+                                        </div>
+                                        
+                                        <div class="stat-card">
+                                            <div class="stat-icon">📊</div>
+                                            <div class="stat-number" data-target="89">0</div>
+                                            <div class="stat-label">Projects</div>
+                                        </div>
+                                        
+                                        <div class="stat-card">
+                                            <div class="stat-icon">💰</div>
+                                            <div class="stat-number" data-target="45000">0</div>
+                                            <div class="stat-label">Revenue</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-section">
+                                        <div class="progress-item">
+                                            <span>React Projects</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" data-width="85"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span>Node.js APIs</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" data-width="70"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Todo App -->
+            <div class="code-section mb-5">
+                <h3 class="text-success mb-4 text-center">
+                    <i class="fas fa-tasks me-2"></i> Interactive Todo App
+                </h3>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-html5 me-2"></i> HTML
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>&lt;div class="todo-app"&gt;
+  &lt;div class="todo-header"&gt;
+    &lt;h3&gt;📝 My Tasks&lt;/h3&gt;
+    &lt;div class="add-task"&gt;
+      &lt;input type="text" id="taskInput" 
+             placeholder="Add new task..."&gt;
+      &lt;button onclick="addTask()"&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="todo-stats"&gt;
+    &lt;span id="totalTasks"&gt;0&lt;/span&gt; Total | 
+    &lt;span id="completedTasks"&gt;0&lt;/span&gt; Done
+  &lt;/div&gt;
+  
+  &lt;div class="todo-list" id="todoList"&gt;
+    &lt;div class="todo-item"&gt;
+      &lt;input type="checkbox" 
+             onchange="toggleTask(this)"&gt;
+      &lt;span&gt;Learn React.js&lt;/span&gt;
+      &lt;button onclick="deleteTask(this)"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="todo-item"&gt;
+      &lt;input type="checkbox" 
+             onchange="toggleTask(this)"&gt;
+      &lt;span&gt;Build Portfolio&lt;/span&gt;
+      &lt;button onclick="deleteTask(this)"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="todo-item completed"&gt;
+      &lt;input type="checkbox" checked 
+             onchange="toggleTask(this)"&gt;
+      &lt;span&gt;Complete MCA&lt;/span&gt;
+      &lt;button onclick="deleteTask(this)"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fab fa-js-square me-2"></i> JavaScript
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>function addTask() {
+  const input = document.getElementById('taskInput');
+  const text = input.value.trim();
+  
+  if (text === '') return;
+  
+  const todoList = document.getElementById('todoList');
+  const todoItem = document.createElement('div');
+  todoItem.className = 'todo-item';
+  todoItem.innerHTML = `
+    &lt;input type="checkbox" 
+           onchange="toggleTask(this)"&gt;
+    &lt;span&gt;${text}&lt;/span&gt;
+    &lt;button onclick="deleteTask(this)"&gt;×&lt;/button&gt;
+  `;
+  
+  todoList.appendChild(todoItem);
+  input.value = '';
+  updateStats();
+  
+  // Add animation
+  todoItem.style.opacity = '0';
+  todoItem.style.transform = 'translateX(-20px)';
+  setTimeout(() => {
+    todoItem.style.transition = 'all 0.3s ease';
+    todoItem.style.opacity = '1';
+    todoItem.style.transform = 'translateX(0)';
+  }, 10);
+}
+
+function toggleTask(checkbox) {
+  const todoItem = checkbox.parentElement;
+  if (checkbox.checked) {
+    todoItem.classList.add('completed');
+  } else {
+    todoItem.classList.remove('completed');
+  }
+  updateStats();
+}
+
+function deleteTask(button) {
+  const todoItem = button.parentElement;
+  todoItem.style.transform = 'translateX(100%)';
+  todoItem.style.opacity = '0';
+  setTimeout(() => {
+    todoItem.remove();
+    updateStats();
+  }, 300);
+}
+
+function updateStats() {
+  const total = document.querySelectorAll('.todo-item').length;
+  const completed = document.querySelectorAll('.todo-item.completed').length;
+  
+  document.getElementById('totalTasks').textContent = total;
+  document.getElementById('completedTasks').textContent = completed;
+}
+
+// Initialize stats
+updateStats();
+
+// Enter key support
+document.getElementById('taskInput')?.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    addTask();
+  }
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="output-block">
+                            <div class="output-header">
+                                <span class="output-title">
+                                    <i class="fas fa-eye me-2"></i> Live Todo App
+                                </span>
+                            </div>
+                            <div class="output-content" id="output3">
+                                <div class="todo-app">
+                                    <div class="todo-header">
+                                        <h3>📝 My Tasks</h3>
+                                        <div class="add-task">
+                                            <input type="text" id="taskInput" placeholder="Add new task...">
+                                            <button onclick="addTask()">+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="todo-stats">
+                                        <span id="totalTasks">3</span> Total | 
+                                        <span id="completedTasks">1</span> Done
+                                    </div>
+                                    
+                                    <div class="todo-list" id="todoList">
+                                        <div class="todo-item">
+                                            <input type="checkbox" onchange="toggleTask(this)">
+                                            <span>Learn React.js</span>
+                                            <button onclick="deleteTask(this)">×</button>
+                                        </div>
+                                        
+                                        <div class="todo-item">
+                                            <input type="checkbox" onchange="toggleTask(this)">
+                                            <span>Build Portfolio</span>
+                                            <button onclick="deleteTask(this)">×</button>
+                                        </div>
+                                        
+                                        <div class="todo-item completed">
+                                            <input type="checkbox" checked onchange="toggleTask(this)">
+                                            <span>Complete MCA</span>
+                                            <button onclick="deleteTask(this)">×</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="code-section mb-5">
+                <h3 class="text-success mb-4 text-center">
+                    <i class="fas fa-cloud-sun me-2"></i> Weather Widget
+                </h3>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">
+                                    <i class="fas fa-code me-2"></i> Complete Code
+                                </span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="weather-widget"&gt;
+  &lt;div class="weather-header"&gt;
+    &lt;h3&gt;🌤️ Weather&lt;/h3&gt;
+    &lt;button onclick="refreshWeather()"&gt;🔄&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="weather-main"&gt;
+    &lt;div class="temperature"&gt;
+      &lt;span id="temp"&gt;24&lt;/span&gt;°C
+    &lt;/div&gt;
+    &lt;div class="weather-info"&gt;
+      &lt;div class="location"&gt;📍 Mumbai, India&lt;/div&gt;
+      &lt;div class="condition"&gt;Partly Cloudy&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="weather-details"&gt;
+    &lt;div class="detail-item"&gt;
+      &lt;span&gt;💧 Humidity&lt;/span&gt;
+      &lt;span id="humidity"&gt;65%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="detail-item"&gt;
+      &lt;span&gt;💨 Wind&lt;/span&gt;
+      &lt;span id="wind"&gt;12 km/h&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.weather-widget {
+  background: linear-gradient(135deg, 
+    #74b9ff, #0984e3);
+  border-radius: 20px;
+  padding: 25px;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.weather-header button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.weather-header button:hover {
+  background: rgba(255,255,255,0.3);
+  transform: rotate(180deg);
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.weather-info {
+  flex: 1;
+}
+
+.location {
+  font-size: 16px;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+
+.condition {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.detail-item {
+  background: rgba(255,255,255,0.1);
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+function refreshWeather() {
+  // Simulate API call
+  const temps = [22, 24, 26, 28, 25, 23];
+  const humidity = [60, 65, 70, 55, 62, 68];
+  const wind = [10, 12, 15, 8, 11, 14];
+  
+  const randomTemp = temps[Math.floor(Math.random() * temps.length)];
+  const randomHumidity = humidity[Math.floor(Math.random() * humidity.length)];
+  const randomWind = wind[Math.floor(Math.random() * wind.length)];
+  
+  document.getElementById('temp').textContent = randomTemp;
+  document.getElementById('humidity').textContent = randomHumidity + '%';
+  document.getElementById('wind').textContent = randomWind + ' km/h';
+  
+  // Add refresh animation
+  const widget = document.querySelector('.weather-widget');
+  widget.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    widget.style.transform = 'scale(1)';
+  }, 150);
+}
+&lt;/script&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="output-block">
+                            <div class="output-header">
+                                <span class="output-title">
+                                    <i class="fas fa-eye me-2"></i> Live Weather Widget
+                                </span>
+                            </div>
+                            <div class="output-content" id="output4">
+                                <div class="weather-widget">
+                                    <div class="weather-header">
+                                        <h3>🌤️ Weather</h3>
+                                        <button onclick="refreshWeather()">🔄</button>
+                                    </div>
+                                    
+                                    <div class="weather-main">
+                                        <div class="temperature">
+                                            <span id="temp">24</span>°C
+                                        </div>
+                                        <div class="weather-info">
+                                            <div class="location">📍 Mumbai, India</div>
+                                            <div class="condition">Partly Cloudy</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="weather-details">
+                                        <div class="detail-item">
+                                            <span>💧 Humidity</span>
+                                            <span id="humidity">65%</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span>💨 Wind</span>
+                                            <span id="wind">12 km/h</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <div class="modal fade" id="resumeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resume - Archana Anand</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="resumeContent">
+                        <div class="text-center mb-4">
+                            <h3>Archana Anand</h3>
+                            <p class="text-muted">Full Stack Developer | MERN Stack Enthusiast</p>
+                            <p>Email: archana.anand@email.com | Phone: +91-XXXXXXXXXX</p>
+                        </div>
+                        
+                        <h5 class="text-success">Education</h5>
+                        <ul>
+                            <li>Master of Computer Applications (MCA) - Completed</li>
+                            <li>Bachelor of Computer Applications (BCA) - Completed</li>
+                            <li>Currently pursuing MERN Stack Development Course</li>
+                        </ul>
+                        
+                        <h5 class="text-success">Skills</h5>
+                        <ul>
+                            <li>Frontend: HTML, CSS, JavaScript, React.js, Bootstrap</li>
+                            <li>Backend: Node.js, Express.js</li>
+                            <li>Database: MongoDB</li>
+                            <li>Version Control: Git, GitHub</li>
+                        </ul>
+                        
+                        <h5 class="text-success">Projects</h5>
+                        <ul>
+                            <li>Portfolio Website - Personal portfolio showcasing skills and projects</li>
+                            <li>MERN Stack Applications - Various projects during course completion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="downloadResume()">
+                        <i class="fas fa-download me-1"></i> Download Resume
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="updateResume()">
+                        <i class="fas fa-edit me-1"></i> Update Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Archana Anand. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <button class="btn btn-outline-warning btn-sm" onclick="showUpdateResumeModal()">
+                        <i class="fas fa-edit me-1"></i> Update Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="code-runner.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
