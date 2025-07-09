@@ -126,6 +126,23 @@ function verifyPasscode() {
   }
 }
 
+// Toggle Password Visibility
+function togglePasswordVisibility() {
+  const passcodeInput = document.getElementById("passcodeInput")
+  const toggleBtn = document.getElementById("togglePasscode")
+  const icon = toggleBtn.querySelector("i")
+
+  if (passcodeInput.type === "password") {
+    passcodeInput.type = "text"
+    icon.className = "fas fa-eye-slash"
+    toggleBtn.setAttribute("title", "Hide Password")
+  } else {
+    passcodeInput.type = "password"
+    icon.className = "fas fa-eye"
+    toggleBtn.setAttribute("title", "Show Password")
+  }
+}
+
 // Show Upload Option
 function showUploadOption() {
   document.getElementById("updateOptions").style.display = "none"
@@ -369,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-// Form submission handler
+// Enhanced Form submission handler with contact storage
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector("#contact form")
   if (contactForm) {
@@ -377,7 +394,6 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault()
 
       // Get form data
-      const formData = new FormData(this)
       const name = this.querySelector('input[placeholder="Your Name"]').value
       const email = this.querySelector('input[placeholder="Your Email"]').value
       const subject = this.querySelector('input[placeholder="Subject"]').value
@@ -396,12 +412,74 @@ document.addEventListener("DOMContentLoaded", () => {
         return
       }
 
+      // Save contact data to localStorage
+      saveContactData(name, email, subject, message)
+
       // Simulate form submission
       showNotification("Message sent successfully! I'll get back to you soon.", "success")
       this.reset()
     })
   }
 })
+
+// Save Contact Data Function
+function saveContactData(name, email, subject, message) {
+  const timestamp = new Date().toLocaleString()
+  const contactEntry = {
+    timestamp: timestamp,
+    name: name,
+    email: email,
+    subject: subject,
+    message: message,
+  }
+
+  // Get existing contacts or initialize empty array
+  const contacts = JSON.parse(localStorage.getItem("contactSubmissions")) || []
+
+  // Add new contact
+  contacts.push(contactEntry)
+
+  // Save back to localStorage
+  localStorage.setItem("contactSubmissions", JSON.stringify(contacts))
+
+  console.log("Contact saved:", contactEntry)
+}
+
+// Download Contacts Function
+function downloadContacts() {
+  const contacts = JSON.parse(localStorage.getItem("contactSubmissions")) || []
+
+  if (contacts.length === 0) {
+    showNotification("No contact submissions found.", "info")
+    return
+  }
+
+  // Create contact.txt content
+  let contactContent = "=== CONTACT FORM SUBMISSIONS ===\n\n"
+
+  contacts.forEach((contact, index) => {
+    contactContent += `--- Contact ${index + 1} ---\n`
+    contactContent += `Timestamp: ${contact.timestamp}\n`
+    contactContent += `Name: ${contact.name}\n`
+    contactContent += `Email: ${contact.email}\n`
+    contactContent += `Subject: ${contact.subject}\n`
+    contactContent += `Message: ${contact.message}\n`
+    contactContent += `\n${"=".repeat(50)}\n\n`
+  })
+
+  // Create and download file
+  const blob = new Blob([contactContent], { type: "text/plain" })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement("a")
+  a.href = url
+  a.download = "contact.txt"
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+
+  showNotification(`Downloaded ${contacts.length} contact submissions!`, "success")
+}
 
 // Add loading animation to buttons when clicked
 document.addEventListener("click", (e) => {
