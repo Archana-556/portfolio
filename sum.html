@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pick Number From Random Array Sum and Average</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Random Array Sum and Average Calclator</h2>
+  <button onclick="calc()">Pick Rndom Numbers</button>
+
+  <div id="output"></div>
+
+  <script>
+    const arr = [200, 400, 250, 350, 0, 32, 20, 675, 0, 0, 100, 1000];
+
+    function calc() {
+      let sum = 0;
+      let count = 0;
+      let pickedNum = [];
+
+      for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        const value = arr[randomIndex];
+        pickedNum.push(value);
+
+        if (value === 0) {
+          break;
+        }
+
+        sum += value;
+        count++;
+      }
+
+      let average = count > 0 ? (sum / count).toFixed(2) : 0;
+
+      // Show output
+      document.getElementById("output").innerHTML = `
+        <strong>Selected Values:</strong> ${pickedNum.join(", ")}<br>
+        <strong>Sum:</strong> ${sum}<br>
+        <strong>Average:</strong> ${average}
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -126,6 +126,7 @@ function verifyPasscode() {
   }
 }
 
+<<<<<<< HEAD
 // Toggle Password Visibility
 function togglePasswordVisibility() {
   const passcodeInput = document.getElementById("passcodeInput")
@@ -143,6 +144,8 @@ function togglePasswordVisibility() {
   }
 }
 
+=======
+>>>>>>> bbbe7a5 (Updated project with latest changes)
 // Show Upload Option
 function showUploadOption() {
   document.getElementById("updateOptions").style.display = "none"
@@ -386,7 +389,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
+<<<<<<< HEAD
 // Enhanced Form submission handler with contact storage
+=======
+// Form submission handler
+>>>>>>> bbbe7a5 (Updated project with latest changes)
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector("#contact form")
   if (contactForm) {
@@ -394,6 +401,10 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault()
 
       // Get form data
+<<<<<<< HEAD
+=======
+      const formData = new FormData(this)
+>>>>>>> bbbe7a5 (Updated project with latest changes)
       const name = this.querySelector('input[placeholder="Your Name"]').value
       const email = this.querySelector('input[placeholder="Your Email"]').value
       const subject = this.querySelector('input[placeholder="Subject"]').value
@@ -412,9 +423,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return
       }
 
+<<<<<<< HEAD
       // Save contact data to localStorage
       saveContactData(name, email, subject, message)
 
+=======
+>>>>>>> bbbe7a5 (Updated project with latest changes)
       // Simulate form submission
       showNotification("Message sent successfully! I'll get back to you soon.", "success")
       this.reset()
@@ -422,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
+<<<<<<< HEAD
 // Save Contact Data Function
 function saveContactData(name, email, subject, message) {
   const timestamp = new Date().toLocaleString()
@@ -481,6 +496,8 @@ function downloadContacts() {
   showNotification(`Downloaded ${contacts.length} contact submissions!`, "success")
 }
 
+=======
+>>>>>>> bbbe7a5 (Updated project with latest changes)
 // Add loading animation to buttons when clicked
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn") && !e.target.classList.contains("btn-close")) {

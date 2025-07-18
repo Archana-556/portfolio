@@ -4,5 +4,9 @@
   "private": true,
   "scripts": {
     "build": "echo 'no build script'"
+<<<<<<< HEAD
+=======
+
+>>>>>>> bbbe7a5 (Updated project with latest changes)
   }
 }
